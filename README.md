@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+### 2. **Dashboard README**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+```markdown
+# 💼 ZapPay Dashboard
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ZapPay Dashboard is the admin interface for managing payments, users, and invoices. This interactive UI allows admins to configure settings, monitor transactions, and manage user accounts.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Key Features
 
-## Learn More
+- 📊 **Transaction Monitoring**: View real-time transaction statuses.
+- 🧾 **Invoice & Payment Link Management**: Generate and manage invoices and links.
+- 👥 **User Management**: Access social logins and user data.
+- 💻 **Cross-Chain Support**: Dashboard that works across multiple blockchains.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🖥️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **React**: Frontend framework for a responsive UI
+- **TailwindCSS**: For a clean and modern design
+- **Particle Network**: Social login and wallet integration
+- **REST API**: Communicates with ZapPay backend
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Prerequisites
+
+- **Node.js** (v14+)
+- **ZapPay Backend** running locally or on a server
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/zappay-dashboard.git
