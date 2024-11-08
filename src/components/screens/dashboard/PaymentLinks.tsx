@@ -142,7 +142,7 @@ export const PaymentLinks = ({data} : Pops) => {
                 </p></TableCell>
             <TableCell className="text-right flex items-end justify-end"> <div className='flex text-right space-x-1 items-center font-medium text-muted-foreground'>
               <Image  src={GLOBAL_LOGO} width={70} height={70} alt='hedera logo' className='rounded-full w-4 h-4' />
-              <p>{item.amount ?  `${item.amount} Tokens`  :  "Any amount"} </p>
+              <p>{item.amount ?  `${item.amount} USDC`  :  "Any amount"} </p>
               </div></TableCell>
             <TableCell className="text-right">
             <Sheet>

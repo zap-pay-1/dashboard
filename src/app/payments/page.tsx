@@ -1,7 +1,9 @@
+//@ts-nocheck
+
 import React from 'react'
 import axios from 'axios'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth]/route'
+import { authOptions } from "@/lib/auth-options";
 import { BACKEND_URL } from '@/constants'
 import LatestPayments from '@/components/screens/dashboard/LatestPayments'
 

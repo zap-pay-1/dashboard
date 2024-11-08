@@ -13,9 +13,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { AiOutlineUser } from 'react-icons/ai'
-import { useUserContext } from './providers/user-context'
+import { signOut } from 'next-auth/react'
 export default function DashboardNav() {
-  const {logout} = useUserContext()
   const router =  useRouter()
     //bg-[#388e3c] hover:bg-[#d4e157]
   return (
@@ -30,7 +29,7 @@ export default function DashboardNav() {
   </DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuItem>
-    <Button className='w-full' onClick={logout} variant={"outline"}>
+    <Button className='w-full' onClick={() => signOut({ callbackUrl: '/auth/signin' })} variant={"outline"}>
         <Plus className='w-4 h-4 mr-2'   />
       Logout
       </Button>

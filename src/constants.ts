@@ -4,9 +4,9 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import { Calendar, } from "lucide-react";
 import { BadgeDollarSign , Link, House, Settings, LayoutDashboard, Link2, Flame, Code2, TrendingUp, DollarSign} from "lucide-react";
 import { IconInvoice } from "@tabler/icons-react";
-export const  GLOBAL_LOGO ="https://pbs.twimg.com/profile_images/1792601935737966592/EK42ujXH_400x400.jpg"
-export const  BACKEND_URL =  "https://pap-4ohb.onrender.com"
- export const WEBSITE_BASE_URL = "https://devnet.munapay.xyz/"
+export const  GLOBAL_LOGO ="/img/usdc.png"
+export const  BACKEND_URL =   "https://zap-pay.onrender.com"  ///"https://pap-4ohb.onrender.com"
+ export const WEBSITE_BASE_URL = "https://pay.usezap.xyz/"
  export const  INVOICE_ABB =  "#XWZHZ1JJK"
  export const PUBLIC_IPFS_GATEWAY ="https://ipfs.subsocial.network/ipfs/"
 export const  sideBarMenu = [
@@ -58,39 +58,43 @@ export const paymentScheduleDates = [
 
   export const currencies =  [
     {
-     name : "GLMR",
-     value :  "GLMR"
-    },
-    {
      name : "USDC",
-     value :  "USDC"
+     value :  "USDC",
+     key : 0
     },
     {
-      name : "USDT",
-      value :  "USDT"
+     name : "USDT",
+     value :  "USDT",
+     key : 1
+    },
+    {
+      name : "ETH",
+      value :  "ETH",
+      key : 2
      },
-     {
-      name : "POLKADOT",
-      value :  "DOT"
-     },
-     {
-      name : "BITCOIN",
-      value :  "BTC"
-     },
+     
  ]
 
  export const supportedNetworks = [
   {
-    name : "Moonbeam",
-     value : "moonbeam",
+    name : "Arbitrum",
+     value : "arbitrum",
+     key : 0
   },
   {
-    name : "Moonriver",
-     value : "moonriver",
+    name : "Base",
+     value : "base",
+     key : 1
   },
   {
-    name : "Acala",
-     value : "acala",
+    name : "Polygon",
+     value : "polygon",
+     key : 2
+  },
+  {
+    name : "TRON",
+     value : "tron",
+     key : 3
   },
  ]
 
@@ -114,7 +118,7 @@ export const paymentScheduleDates = [
   {
     icone : Flame,
     title : "Instant settlement",
-    description : "munaPay never holds your funds. They are transferred to your Hedera wallet instantly..",
+    description : "ZapPay never holds your funds. They are transferred to your Hedera wallet instantly..",
   },
   {
     icone : Code2,
@@ -137,4 +141,4 @@ status: "COMPLETED",
 txHash: "0xf201e41e6061782c15ec74dc273ffe86a0cc0c077a379cc5662bb75110b58914"
 }
 
-export const MUNA_PAY_INTRO_TEXT = `MunaPay is a payment solution for individuals and organisations to start accepting payments on Hedera. With a low-code solution, mobile-native design, and support for various payment methods, we make it easy for merchants to upgrade their payment system with crypto.`
+export const MUNA_PAY_INTRO_TEXT = `ZapPay is a payment solution for individuals and organisations to start accepting payments on Hedera. With a low-code solution, mobile-native design, and support for various payment methods, we make it easy for merchants to upgrade their payment system with crypto.`

@@ -7,7 +7,7 @@ export default function Footer() {
     <div className='w-full flex justify-between items-stretch border-t pt-28 space-x-6 px-5 my-4 max-w-[1500px] mx-auto'>
          <div  className='max-w-2xl'>
             <div className='my-2'>
-                <h1 className='font-bold text-orange-500 text-4xl'>MunaPay</h1>
+                <h1 className='font-bold text-orange-500 text-4xl'>ZapPay</h1>
             </div>
              <h3 className='text-sm text-muted-foreground'>{MUNA_PAY_INTRO_TEXT}</h3>
              <div className='hidden'>

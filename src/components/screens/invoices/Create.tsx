@@ -47,6 +47,7 @@ import { COUNTRIES_DIAL_CODE } from '@/lib/countries-code'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { useUserContext } from '@/components/providers/user-context'
 import { BACKEND_URL, currencies, paymentScheduleDates } from '@/constants'
+import { useSession } from 'next-auth/react'
 
 
 const formSchema = z.object({
@@ -71,13 +72,13 @@ const formSchema = z.object({
 
 tax : z.coerce.number()
 
-})
+})// 
 
 export default function CreateInvoice() {
 
-  const {userProfile}  =  useUserContext()
+  const {data : session}  = useSession()
+const {id} = session?.user
 
-   console.log("user profile", userProfile)
   const {toast}  = useToast()
 
   const  router =  useRouter()
@@ -114,14 +115,14 @@ export default function CreateInvoice() {
        //  FTECH  ALL  USER CUSTOMERS
 
        const  fetchUserCustomers  =  async ()  =>  {
-     const res =   await axios.get(`${CUSTOMER_BASE_URL}get-customers/${userProfile?.id}`)
+     const res =   await axios.get(`${CUSTOMER_BASE_URL}get-customers/${id}`)
         return res.data
        }
 
      const {data : customers, isLoading : isCustomersLoading, isError : isCustomersErro }  = useQuery({
       queryKey : ['customers'],
       queryFn : fetchUserCustomers,
-      enabled : !!userProfile?.id
+      enabled : !!id
      })
 
        console.log("customers", customers)
@@ -140,7 +141,7 @@ export default function CreateInvoice() {
            // 2. Define a submit handler.
            const  values = form.watch()
            const  valuesData  =  {
-            userId  :  userProfile?.id,
+            userId  : id,
             customer:  values.customer,
              memo  :  values.InvoiceMemo,
             dueDate  :  values.dueDate,
@@ -349,7 +350,7 @@ const isButtonDisabled = !values.customer ||  !values.dueDate || !values.payment
 
             <FormItem className='w-80 '>
               
-                 <Select onValueChange={field.onChange} defaultValue={"GLMR"}  >
+                 <Select onValueChange={field.onChange} defaultValue={"USDC"}  >
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Payment currency" />

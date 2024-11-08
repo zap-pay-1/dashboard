@@ -16,7 +16,7 @@ export default function Steps() {
          </div>
         <div className='w-full h-[94vh] flex md:space-x-10'>
      <div className='w-full h-full hidden bg-gradient-to-bl from-orange-500 via-orange-600 to-yellow-500 md:flex flex-col space-y-3 items-center justify-center text-white'>
-        <h1 className="text-xl md:text-3xl font-bold text-center">Welcome to munaPay</h1>
+        <h1 className="text-xl md:text-3xl font-bold text-center">Welcome to ZapPay</h1>
         <p className="font-light text-xl text-center">Answer a few quick <br /> Questions to get started</p>
      </div>
        <div className='w-full h-[94vh]  p-6 flex flex-col'>

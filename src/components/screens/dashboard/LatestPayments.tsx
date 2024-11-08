@@ -1,5 +1,5 @@
 
-
+//@ts-nocheck
 
 "use client"
 import React, {useState} from 'react'
@@ -113,7 +113,7 @@ export default function LatestPayments({data}: Pops) {
        <Ellipsis   />
     </Button>
   </SheetTrigger>
-  <SheetContent  className="w-[900px] sm:w-[540px]">
+  <SheetContent  className=" sm:w-[540px]">
     <SheetHeader  className=' border-b'>
       <SheetTitle>Payments</SheetTitle>
    </SheetHeader>

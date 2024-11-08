@@ -123,7 +123,7 @@ console.log("settings data", data)
 
                <FormLabel>wallet address</FormLabel>
               <FormControl>
-                <Input placeholder="aptos wallet" {...field} />
+                <Input placeholder="EVM wallet" {...field} />
               </FormControl>
               <FormDescription>
               Used to receive payments from your customers. 

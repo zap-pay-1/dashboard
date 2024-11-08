@@ -261,7 +261,7 @@ className='w-24 h-24 text-indigo-500 animate-spin'
                   </div>
 */}
                    <div  className='absolute bottom-14 w-full hidden lg:flex'>
-                   <p className='text-sm text-muted-foreground'>Powered by Munapay</p>
+                   <p className='text-sm text-muted-foreground'>Powered by ZapPay</p>
 
                   
   </div>

@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
+
 import {
     Select,
     SelectContent,
@@ -35,6 +36,7 @@ import { useUserContext } from '../providers/user-context'
 import { useMutation } from '@tanstack/react-query'
 import { Loader, Loader2 } from 'lucide-react'
 import { BACKEND_URL } from '@/constants'
+import { useSession } from 'next-auth/react'
 const formSchema = z.object({
   linkName: z.string().min(5, {
     message : "Title must be at least 5 characters"
@@ -60,11 +62,12 @@ const formSchema = z.object({
 })
 
 
-
 const  CreatePayLink = () =>  {
   const [isRedirecting, setisRedirecting] = useState(false)
   const {userProfile}  = useUserContext()
 const [truth, settruth] = useState(true)
+const {data : session}  = useSession()
+const {id} = session?.user
 const {toast} = useToast()
    // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -81,7 +84,7 @@ const {toast} = useToast()
       paymentTag : "",
       labelText : "",
       //recieverWallet : "",
-      userId  :  userProfile?.id,
+      userId  :  id,
       description : ""
      
     },
@@ -89,7 +92,6 @@ const {toast} = useToast()
 
 
        const  PAY_BASE_URL = `${BACKEND_URL}/pay/`
-       const  LOCAL_PAY_BASE_URL = `http://localhost:5000/pay/`
 
          const  handleCreateLink = async (values)  =>  {
             const  res  = await  axios.post(`${PAY_BASE_URL}create-link`,  values)
@@ -101,6 +103,8 @@ const {toast} = useToast()
            mutationKey : ["pay-link"]
          })
   // 2. Define a submit handler.
+
+    const  value = form.watch()
   const onSubmit  =  async (values: z.infer<typeof formSchema>)=>{
  try {
             await  mutation.mutateAsync(values) 
@@ -145,8 +149,7 @@ const {toast} = useToast()
               <div  className='max-w-md  w-full   mx-auto p-2'>
 
                   <h1  className='text-2xl font-bold hidden'>Create payment link</h1>
-
-
+ 
                   <div>
                   <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -455,7 +458,7 @@ const {toast} = useToast()
            
 
         
-        <Button type="submit" className='w-full'  disabled={mutation.isPending}>{mutation.isPending  ?  "Creating payment link.."  :  "Create payment link"}</Button>
+        <Button type="submit" className='w-full'  disabled={mutation.isPending  || ! value.userId || ! value.description || ! value.linkName}>{mutation.isPending  ?  "Creating payment link.."  :  "Create payment link"}</Button>
       </form>
     </Form>
                   </div>

@@ -86,7 +86,7 @@ export const projects = [
   {
     title: "Create paylink",
     description: "Powered your app with crypto payments through a powerful API",
-    link: "/dashboard/payment-links",
+    link: "/payment-links",
     children : CreateLink()
     
   },
@@ -94,7 +94,7 @@ export const projects = [
     title: "Create invoice",
     description:
       "Create and send crypto invoices to your customers or clients",
-    link: "/dashboard/invoices",
+    link: "/invoices",
     children : CreateInvoice()
   },
   {

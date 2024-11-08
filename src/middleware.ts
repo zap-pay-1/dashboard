@@ -9,5 +9,5 @@ export default withAuth({
 
 // Set up protected routes with the matcher
 export const config = {
-  matcher: ['/protected', '/dashboard'],
+  matcher: ['/', '/payments', '/payment-links', '/settings', '/invoices', ],
 };

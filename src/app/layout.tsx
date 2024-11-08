@@ -9,6 +9,7 @@ import { ParticleConnectkit } from "@/components/providers/connect-kit";
 import { CiWarning } from "react-icons/ci";
 import DashboardNav from "@/components/dashbord-nav";
 import Sidebar from "@/components/sidebar/side-bar";
+import { SessionProvider } from "next-auth/react";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -38,7 +39,7 @@ export const metadata = {
     title: "Seamless Web3 Payments & Invoicing for Modern Merchants",
     description:
       "Effortlessly create invoices and payment links using our Web3 platform. Accept payments in crypto, manage transactions, and streamline your merchant operations.",
-    url: "https://www.munapay.xyz",
+    url: "https://www.usezap.xyz",
     images: [
       {
         url: "/img/monitize-tg.png",
@@ -73,10 +74,11 @@ export default function RootLayout({///
         <ClientProviders>
         <UserContextProvider>
         <NextTopLoader
-        color="#f97316"
+        color="#22c55e"
         showSpinner={false}
         />
         <ParticleConnectkit>
+        
         <div>
         <div className='h-8 max-w-xl my-3 mx-auto  w-full flex space-x-2 text-red-500 items-center justify-center md:hidden'> 
             <CiWarning  />
@@ -87,7 +89,7 @@ export default function RootLayout({///
       </div>
            
       <div className='min-h-screen'>
-        <div className=' hidden  md:flex md:w-[200px] border-r h-screen fixed top-0 bg-gradient-to-tr from-zinc-100 to-zinc-100'><Sidebar  /></div>
+      <div className=' hidden  md:flex md:w-[200px] border-r h-screen fixed top-0 '><Sidebar  /></div>
         <div  className='md:ml-[205px]'>
         
          {children}
@@ -95,6 +97,7 @@ export default function RootLayout({///
          </div>
       </div>
         </div>
+       
         </ParticleConnectkit>
         <Toaster  />
         </UserContextProvider>

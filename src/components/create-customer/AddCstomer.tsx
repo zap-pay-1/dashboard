@@ -31,12 +31,12 @@ import { useToast } from '@/components/ui/use-toast'
 import { COUNTRIES_DIAL_CODE } from '@/lib/countries-code'
 import { useUserContext } from '../providers/user-context'
 import { useMutation } from '@tanstack/react-query'
+import { useSession } from 'next-auth/react'
+import { BACKEND_URL } from '@/constants'
 
 export default function AddCstomer() {
-     const  PAY_BASE_URL = `https://got-be.onrender.com/pay/`
-       const  LOCAL_PAY_BASE_URL = `http://localhost:5000/customer/`
-
-       const {userProfile} = useUserContext()
+       const {data : session}  = useSession()
+       const {id} = session?.user
        const {toast}  = useToast()
 
 
@@ -83,7 +83,7 @@ export default function AddCstomer() {
   })
 
   const handleAddNewCustomer =  async (valueData)  =>  {
-    const  res  = await  axios.post(`${LOCAL_PAY_BASE_URL}add-customer`,  valueData)
+    const  res  = await  axios.post(`${BACKEND_URL}/customer/add-customer`,  valueData)
     return res
   }
 
@@ -95,7 +95,7 @@ export default function AddCstomer() {
        // 2. Define a submit handler.
   const onSubmit  =  async (values: z.infer<typeof formSchema>)=>{
     const valueData = {
-      userId : userProfile?.id,
+      userId : id,
       customerName: values.customerName,
       customerEmail  :  values.customerEmail,
       organizationName  :  values.organizationName,
@@ -387,7 +387,7 @@ export default function AddCstomer() {
            
 
         
-        <Button type="submit" className='w-full'  disabled={customerMutation.isPending}>{customerMutation.isPending  ?  "Adding customer.."  :  "Add customer"}</Button>
+        <Button type="submit" className='w-full'  disabled={customerMutation.isPending  || !id}>{customerMutation.isPending  ?  "Adding customer.."  :  "Add customer"}</Button>
       </form>
     </Form>
     </div>

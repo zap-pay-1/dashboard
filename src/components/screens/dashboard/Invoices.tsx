@@ -117,7 +117,7 @@ export default function Invoices({data} : Props) {
             <TableCell className="font-medium text-muted-foreground">{ formatDate( item.createdAt)  }</TableCell>
             <TableCell className="text-left  items-start"> <div className='flex space-x-2 items-center justify-start font-medium text-muted-foreground'>
               <Image  src={GLOBAL_LOGO} width={70} height={70} alt='hedera logo' className='rounded-full w-4 h-4' />
-              <p>{item.subtotal} {item?.paymentToken}</p>
+              <p>{item.subtotal} USDC</p>
               </div></TableCell>
               <TableCell> {` ${INVOICE_ABB}${item.invoiceNumber}`}</TableCell>
 
